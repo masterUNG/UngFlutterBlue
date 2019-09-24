@@ -21,8 +21,9 @@ class FlutterBlueApp extends StatelessWidget {
       home: StreamBuilder<BluetoothState>(
           stream: FlutterBlue.instance.state,
           initialData: BluetoothState.unknown,
-          builder: (c, snapshot) {
+          builder: (BuildContext context, snapshot) {
             final state = snapshot.data;
+            // Check Bluetooth on off
             if (state == BluetoothState.on) {
               return FindDevicesScreen();
             }
